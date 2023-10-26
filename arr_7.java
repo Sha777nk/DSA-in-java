@@ -16,11 +16,9 @@ public class arr_7 {
         }
     }
     public static void main(String[] args) {
-<<<<<<< HEAD
         int []arr ={1,2,3,4,5,6};
-=======
-        int []arr ={1,2,3,4,5};
->>>>>>> 70c1b2bab8bb90c796e71aeea36c0009230295be
+    
+
         int n=arr.length;
         int k=3;
         reverseInGroup(arr, n, k);
