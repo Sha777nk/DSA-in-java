@@ -1,4 +1,4 @@
-package CN;
+
 import java.util.Scanner;
 
 public class passwordStrength {
@@ -69,6 +69,7 @@ public class passwordStrength {
         } 
     }else
     System.out.println("Invalid Password length ");
+    sc.close();
 }
 }
 }

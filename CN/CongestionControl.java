@@ -1,70 +1,69 @@
-package CN;
 
 import java.util.Scanner;
 
 public class CongestionControl {
     public static void main(String[] args) {
-        int c = 0, s, rem = 0, n, i, j, rate;
+        int time = 0, remaining = 0, numPackets, bucketSize, outputRate;
+
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("\nEnter the no of packets : ");
-        n = scanner.nextInt();
+        // Input: Number of packets, packet sizes, bucket size, and output rate
+        System.out.println("Enter the number of packets:");
+        numPackets = scanner.nextInt();
 
-        int size[] = new int[n];
-        System.out.print("\nEnter sizes : ");
+        int[] packetSizes = new int[numPackets];
+        System.out.println("Enter packet sizes:");
+        for (int i = 0; i < numPackets; i++)
+            packetSizes[i] = scanner.nextInt();
 
-        for (j = 0; j < n; j++) {
-            size[j] = scanner.nextInt();
-        }
+        System.out.println("Enter the bucket size:");
+        bucketSize = scanner.nextInt();
 
-        System.out.print("\nEnter the size of the bucket : ");
-        s = scanner.nextInt();
+        System.out.println("Enter the output rate:");
+        outputRate = scanner.nextInt();
 
-        System.out.print("\nEnter output rate : ");
-        rate = scanner.nextInt();
+        // Transmission simulation
+        for (int i = 0; i < numPackets; i++) {
+            System.out.println("\nTIME " + time);
 
-        for (i = 0; i < n; i++) {
-            System.out.println("TIME : " + c);
-
-            if (size[i] > s) {
-                System.out.println("dropped : " + c + "\n");
-            } else if ((size[i] + rem) > s) {
-                System.out.println("dropped : " + c + "\n");
+            if (packetSizes[i] > bucketSize) {
+                System.out.println("Dropped at time " + time);
+            } else if ((packetSizes[i] + remaining) > bucketSize) {
+                System.out.println("Dropped at time " + time);
             } else {
-                rem = rem + size[i];
+                remaining += packetSizes[i];
             }
 
-            if (rem < rate)
-                System.out.println("bytes txmitted : " + rem + "\n");
-            else
-                System.out.println("bytes txmitted : " + rate + "\n");
+            if (remaining < outputRate) {
+                System.out.println("Bytes transmitted: " + remaining);
+            } else {
+                System.out.println("Bytes transmitted: " + outputRate);
+            }
 
-            rem -= rate;
+            remaining -= outputRate;
+            if (remaining <= 0) {
+                remaining = 0;
+            } else {
+                System.out.println("Bytes still to be transmitted: " + remaining);
+            }
 
-            if (rem <= 0)
-                rem = 0;
-            else
-                System.out.println("bytes txmitted : " + rem + "\n");
-
-            c++;
+            time++;
         }
 
-        while (rem != 0) {
-            System.out.println("TIME : " + c + "\n");
-            c++;
+        // Transmission of remaining bytes
+        while (remaining > 0) {
+            System.out.println("\nTIME " + time);
+            time++;
 
-            if (rem < rate) {
-                System.out.println("bytes txmitted : " + rem + "\n");
-                rem = 0;
-            }
-
-            if (rem >= rate) {
-                System.out.println("bytes txmitted : " + rate + "\n");
-                rem -= rate;
-                System.out.println("bytes txmitted : " + rem + "\n");
+            if (remaining < outputRate) {
+                System.out.println("Bytes transmitted: " + remaining);
+                remaining = 0;
+            } else {
+                System.out.println("Bytes transmitted: " + outputRate);
+                remaining -= outputRate;
+                System.out.println("Bytes still to be transmitted: " + remaining);
             }
         }
-
         scanner.close();
     }
 }

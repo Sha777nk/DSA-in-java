@@ -1,4 +1,4 @@
-package CN.UDP;
+package UDP;
 
 // Java program to illustrate Server side 
 // Implementation using DatagramSocket 

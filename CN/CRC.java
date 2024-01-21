@@ -1,4 +1,4 @@
-package CN;
+
 import java.util.Scanner;
 
 public class CRC {
@@ -107,6 +107,7 @@ public class CRC {
         else
             System.out.println("\nReceived message is not erroneous.. ");
 
+            sc.close();
     }
 
 }

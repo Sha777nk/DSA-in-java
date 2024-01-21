@@ -1,4 +1,4 @@
- package CN;
+ 
 
 import java.util.Scanner;
 
@@ -44,21 +44,6 @@ public class DistanceVectorRouting {
 
     public static void main(String[] args) {
         DistanceVectorRouting router = new DistanceVectorRouting();
-
-        // // Example distance matrix (replace this with your actual data)
-        // int n = 3;
-        // int distanceMatrix[][] = {
-        // // {0, 2, 5, Integer.MAX_VALUE},
-        // // {2, 0, 3, 4},
-        // // {5, 3, 0, 1},
-        // // {Integer.MAX_VALUE, 4, 1, 0}
-        // {0, 1, 3},
-        // {1, 0, 1},
-        // {3, 1, 0}
-        // };
-
-        // router.calculateRoutingTable(n, distanceMatrix);
-
         int i, j, n;
         System.out.print("Enter the number of nodes: ");
         Scanner sc = new Scanner(System.in);
@@ -76,3 +61,18 @@ public class DistanceVectorRouting {
         router.calculateRoutingTable(n, distanceMatrix);
     }
 }
+
+
+        // // Example distance matrix (replace this with your actual data)
+        // int n = 3;
+        // int distanceMatrix[][] = {
+        // // {0, 2, 5, Integer.MAX_VALUE},
+        // // {2, 0, 3, 4},
+        // // {5, 3, 0, 1},
+        // // {Integer.MAX_VALUE, 4, 1, 0}
+        // {0, 1, 3},
+        // {1, 0, 1},
+        // {3, 1, 0}
+        // };
+
+        // router.calculateRoutingTable(n, distanceMatrix);
