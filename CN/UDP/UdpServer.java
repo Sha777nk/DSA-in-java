@@ -1,13 +1,7 @@
 package UDP;
-
-// Java program to illustrate Server side 
-// Implementation using DatagramSocket 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-// import java.net.InetAddress; 
-// import java.net.SocketException; 
-
 public class UdpServer {
     public static void main(String[] args) throws IOException {
         // Step 1 : Create a socket to listen at port 1234
