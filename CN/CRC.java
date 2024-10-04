@@ -107,7 +107,7 @@ public class CRC {
         else
             System.out.println("\nReceived message is not erroneous.. ");
 
-            sc.close();
+            
     }
 
 }
