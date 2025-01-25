@@ -73,6 +73,7 @@ return sum;
 
       System.out.println(Sum(arr));
       System.out.println((float)Sum(arr)/arr.length);
+      sc.closed();
     }
 }
 
